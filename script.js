@@ -51,12 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   reveals.forEach(el => revealObserver.observe(el));
 
-  // Fallback: force-reveal any still-hidden elements after 4s
+  // Fallback: force-reveal any still-hidden elements after 2s
   setTimeout(() => {
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
       el.classList.add('visible');
     });
-  }, 4000);
+  }, 2000);
+
+  // ========== Hide Spline Watermark ==========
+  const splineViewer = document.querySelector('spline-viewer');
+  if (splineViewer) {
+    const hideWatermark = () => {
+      const shadowRoot = splineViewer.shadowRoot;
+      if (shadowRoot) {
+        const logo = shadowRoot.querySelector('#logo');
+        if (logo) {
+          logo.style.display = 'none';
+          return;
+        }
+      }
+      // Retry until it loads
+      requestAnimationFrame(hideWatermark);
+    };
+    // Wait for Spline to initialize
+    setTimeout(hideWatermark, 1000);
+  }
 
   // ========== Hamburger Menu ==========
   const hamburger = document.querySelector('.hamburger');

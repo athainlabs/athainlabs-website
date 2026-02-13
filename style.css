@@ -266,17 +266,23 @@ ul, ol {
   position: relative;
   padding: var(--section-padding);
   padding-top: 170px;
-  overflow: hidden;
+  overflow: clip;
 }
 
 .hero-spline-bg {
   position: relative;
-  z-index: -1;
+  z-index: 0;
   width: clamp(500px, 80vw, 1000px);
   height: clamp(500px, 80vw, 1000px);
   /* margin-bottom: -140px; */
   margin-top: -630px;
   overflow: hidden;
+  pointer-events: auto;
+}
+
+/* Hide Spline watermark */
+.hero-spline-bg spline-viewer::part(logo) {
+  display: none !important;
 }
 
 .hero-spline-bg spline-viewer {
@@ -1048,8 +1054,8 @@ ul, ol {
 /* ---------- Scroll Animations ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(15px);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
 }
 
 .reveal.visible {
@@ -1057,10 +1063,10 @@ ul, ol {
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-1 { transition-delay: 0.05s; }
+.reveal-delay-2 { transition-delay: 0.1s; }
+.reveal-delay-3 { transition-delay: 0.15s; }
+.reveal-delay-4 { transition-delay: 0.2s; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
