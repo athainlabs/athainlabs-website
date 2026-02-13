@@ -35,28 +35,28 @@ document.addEventListener('DOMContentLoaded', () => {
     cursor.style.display = 'none';
   }
 
-  // ========== Scroll Reveal (IntersectionObserver) ==========
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.05,
-    rootMargin: '0px 0px -20px 0px'
+  // ========== Instant Reveal — no animation delays ==========
+  document.querySelectorAll('.reveal').forEach(el => {
+    el.classList.add('visible');
   });
 
-  reveals.forEach(el => revealObserver.observe(el));
-
-  // Fallback: force-reveal any still-hidden elements after 2s
-  setTimeout(() => {
-    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-      el.classList.add('visible');
-    });
-  }, 2000);
+  // ========== Pause Spline when out of view for performance ==========
+  const splineContainer = document.querySelector('.hero-spline-bg');
+  if (splineContainer) {
+    const splineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const viewer = splineContainer.querySelector('spline-viewer');
+        if (viewer) {
+          if (entry.isIntersecting) {
+            viewer.style.visibility = 'visible';
+          } else {
+            viewer.style.visibility = 'hidden';
+          }
+        }
+      });
+    }, { threshold: 0 });
+    splineObserver.observe(splineContainer);
+  }
 
   // ========== Hide Spline Watermark ==========
   const splineViewer = document.querySelector('spline-viewer');
