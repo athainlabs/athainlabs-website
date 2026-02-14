@@ -272,16 +272,11 @@ ul, ol {
 }
 
 .hero-spline-bg {
-  position: absolute;
-  top: -200%;
-  left: 50%;
-  transform: translate(-50%, -20%);
-  z-index: -1;
-  width: clamp(300px, 40vw, 500px);
-  height: clamp(300px, 40vw, 500px);
-  pointer-events: auto;
-  will-change: transform;
-  isolation: isolate;
+  position: relative;
+  z-index: 1;
+  width: clamp(280px, 35vw, 420px);
+  height: clamp(280px, 35vw, 420px);
+  margin-bottom: -40px;
 }
 
 /* Hide Spline watermark */
@@ -291,10 +286,10 @@ ul, ol {
 
 .hero-spline-bg spline-viewer {
   width: 100%;
-  height: 120%;
+  height: 100%;
   display: block;
+  background: transparent !important;
 }
-
 
 
 .hero-content {
@@ -320,7 +315,6 @@ ul, ol {
   line-height: 0.95;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-top: 280px;
 }
 
 .hero-title em {
