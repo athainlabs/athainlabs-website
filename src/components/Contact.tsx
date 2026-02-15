@@ -75,6 +75,21 @@ export default function Contact() {
         </div>
       </div>
 
+      <div className="contact-info">
+        <div className="contact-address">
+          <h3>Athain Labs</h3>
+          <p>New Delhi, India</p>
+          <a 
+            href="https://maps.google.com/?q=New+Delhi,+India" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="contact-map-link"
+          >
+            View on Map ↗
+          </a>
+        </div>
+      </div>
+
       <MagneticButton href="mailto:hello@athain.software">
         Start a conversation
       </MagneticButton>

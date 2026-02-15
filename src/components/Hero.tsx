@@ -131,9 +131,9 @@ export default function Hero({
         transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <p className="hero-tagline">
-          An AI consultancy that automates workflows<br />
-          and builds working prototypes — turning bold<br />
-          ideas into real products, fast.
+          An AI consultancy based in Delhi that automates<br />
+          workflows and builds working prototypes — turning<br />
+          bold ideas into real products, fast.
         </p>
         <div className="hero-scroll">
           <span className="hero-scroll-text">Scroll</span>

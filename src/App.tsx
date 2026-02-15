@@ -11,6 +11,7 @@ import { Analytics } from '@vercel/analytics/react'
 // Lazy-load below-the-fold sections — they aren't needed until the user scrolls
 const Services = lazy(() => import('./components/Services'))
 const About = lazy(() => import('./components/About'))
+const Insights = lazy(() => import('./components/Insights'))
 const Contact = lazy(() => import('./components/Contact'))
 const Footer = lazy(() => import('./components/Footer'))
 
@@ -34,6 +35,7 @@ function App() {
         <Suspense fallback={null}>
           <Services />
           <About />
+          <Insights />
           <Contact />
         </Suspense>
       </main>
