@@ -33,22 +33,6 @@ const services: ServiceData[] = [
     tags: ['Roadmapping', 'Use Case Discovery', 'Tech Stack', 'ROI Analysis'],
     icon: '◎',
   },
-  {
-    num: '04',
-    name: 'Data & Infrastructure',
-    description:
-      'The smartest AI is only as good as its data. We architect robust data pipelines, optimize model infrastructure, and ensure your systems are built to scale from day one.',
-    tags: ['Data Engineering', 'MLOps', 'Cloud', 'Scalability'],
-    icon: '⬡',
-  },
-  {
-    num: '05',
-    name: 'Custom AI Products',
-    description:
-      'From intelligent copilots to autonomous agents — we design and build production-grade AI products tailored to your domain. Bespoke solutions that give you an unfair advantage.',
-    tags: ['Product Design', 'Fine-tuning', 'Deployment', 'Monitoring'],
-    icon: '◉',
-  },
 ]
 
 const ServiceCard = memo(function ServiceCard({ service, index, isActive, isVisible, onActivate }: {

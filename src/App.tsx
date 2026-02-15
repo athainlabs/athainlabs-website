@@ -6,7 +6,6 @@ import Scene3D from './components/Scene3D'
 import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Marquee from './components/Marquee'
 import { Analytics } from '@vercel/analytics/react'
 
 // Lazy-load below-the-fold sections — they aren't needed until the user scrolls
@@ -32,7 +31,6 @@ function App() {
       <Navbar />
       <main>
         <Hero ready />
-        <Marquee />
         <Suspense fallback={null}>
           <Services />
           <About />
